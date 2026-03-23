@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class PrimeNumber {
-    static void main(String[] args) {
+    public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
@@ -10,24 +10,29 @@ public class PrimeNumber {
 
         System.out.print("Enter end : ");
         int end = input.nextInt();
-
+        int count = 0;
         for (int num = start; num <= end; num++){
 
             if(num < 2){
-             continue;
+                continue;
             }
-          boolean isPrime = true;
-            for (int i = 2; i < num; i++){
+            boolean isPrime = true;
+            for (int i = 2; i <= Math.sqrt(num); i++){
                 if(num % i == 0){
                     isPrime = false;
                     break;
                 }
-        }
+            }
             if (isPrime){
                 System.out.println(num + " is prime number.");
+                count++;
             }
+        }
+        if (count == 0){
+            System.out.println("No prime number");
+        }
+
         }
 
     }
 
-}
