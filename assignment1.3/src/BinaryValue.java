@@ -7,19 +7,17 @@ public class BinaryValue {
         String binary = input.nextLine();
 
         int decimal = 0;
-        int power = 0;
 
-        for (int i = binary.length() -1; i >= 0; i--){
+
+        for (int i =0; i< binary.length(); i++){
             char bit= binary.charAt(i);
+            decimal = decimal * 2;
             if(bit == '1'){
-                decimal += Math.pow(2, power);
+                decimal = decimal + 1;
             }
-            power++;
 
         }
         System.out.println("Decimal : " + decimal);
-
-
 
     }
 }
