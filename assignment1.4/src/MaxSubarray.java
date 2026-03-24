@@ -11,9 +11,10 @@ public class MaxSubarray {
 
         System.out.println("Enter the integers into the array:");
         for (int i = 0; i < size; i++) {
-            System.out.print("Enter integer " + i + ": ");
+            System.out.print("Enter integer " + (i + 1) + ": ");
             array[i] = input.nextInt();
         }
+
         int maxSum = array[0];
         int startIndex = 0;
         int endIndex = 0;
@@ -32,9 +33,10 @@ public class MaxSubarray {
                 }
             }
         }
-                System.out.println("Maximum sum: " + maxSum);
-                System.out.println("Integers: " + (startIndex + 1) + "-" + (endIndex + 1));
 
-                input.close();
+        System.out.println("Maximum sum: " + maxSum);
+        System.out.println("Integers: " + (startIndex + 1) + "-" + (endIndex + 1));
+
+        input.close();
     }
 }
