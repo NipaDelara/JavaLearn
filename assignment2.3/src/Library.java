@@ -22,7 +22,9 @@ public class Library {
             Book book = books.get(i);
             System.out.println((i + 1) + ". Title: \"" + book.getTitle()
                     + "\", Author: \"" + book.getAuthor()
-                    + "\", Year: " + book.getPublicationYear());
+                    + "\", Year: " + book.getPublicationYear()
+                    + ", Rating: " + book.getRating()
+                    + ", Reviews: " + book.getReviewCount());
         }
     }
 
@@ -71,5 +73,39 @@ public class Library {
             }
         }
         return false;
+    }
+
+    // ===============================
+    // Task 5: average book rating
+    // ===============================
+    public double getAverageBookRating() {
+        if (books.isEmpty()) {
+            return 0;
+        }
+
+        double total = 0;
+        for (Book book : books) {
+            total += book.getRating();
+        }
+
+        return total / books.size();
+    }
+
+
+    // Task 5: most reviewed book
+    public Book getMostReviewedBook() {
+        if (books.isEmpty()) {
+            return null;
+        }
+
+        Book mostReviewed = books.getFirst();
+
+        for (Book book : books) {
+            if (book.getReviewCount() > mostReviewed.getReviewCount()) {
+                mostReviewed = book;
+            }
+        }
+
+        return mostReviewed;
     }
 }

@@ -43,6 +43,11 @@ public class Book {
     public void addReview(String review) {
         reviews.add(review);
     }
+    // Task 5: get number of reviews
+    public int getReviewCount() {
+        return reviews.size();
+    }
+
     // display reviews
     public void displayReviews() {
         System.out.println("Reviews for \"" + title + "\":");

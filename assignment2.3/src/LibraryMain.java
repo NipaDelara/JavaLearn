@@ -32,6 +32,12 @@ public class LibraryMain {
         // Task 1:display all books
         library.displayBooks();
 
+        // Task 5: average rating
+        System.out.println("\nAverage Book Rating: " + library.getAverageBookRating());
+
+        // Task 5: most reviewed book
+        Book mostReviewed = library.getMostReviewedBook();
+        System.out.println("Most Reviewed Book: " + mostReviewed.getTitle());
 
         // Task 3: check availability
         System.out.println("\nChecking availability:");
