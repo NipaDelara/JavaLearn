@@ -3,10 +3,38 @@ import java.util.ArrayList;
 public class Library {
     //Task 1:arraylist to store books
     private final ArrayList<Book> books = new ArrayList<>();
-
+    private final ArrayList<User> users = new ArrayList<>();
     //Task 1: add book
     public void addBook(Book book) {
         books.add(book);
+    }
+
+    // Task 6: add user
+    public void addUser(User user) {
+        users.add(user);
+    }
+
+    // Task 6: remove user
+    public void removeUser(String name) {
+        users.removeIf(user -> user.getName().equalsIgnoreCase(name));
+    }
+
+    // Task 6: find user
+    public User findUser(String name) {
+        for (User user : users) {
+            if (user.getName().equalsIgnoreCase(name)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    // Task 6: display users
+    public void displayUsers() {
+        System.out.println("Library Users:");
+        for (User user : users) {
+            System.out.println("- " + user.getName() + ", Age: " + user.getAge());
+        }
     }
 
     //Task 1: display all books
@@ -48,15 +76,16 @@ public class Library {
     }
 
     // Task 2: borrow book by title
-    public void borrowBook(String title) {
-        for (Book book : books) {
+    public Book borrowBook(String title) {
+        for (int i = 0; i < books.size(); i++) {
+            Book book = books.get(i);
             if (book.getTitle().equalsIgnoreCase(title)) {
-                books.remove(book);
-                System.out.println("Book borrowed: " + title);
-                return;
+                books.remove(i);
+                return book;
             }
         }
         System.out.println("Book not available: " + title);
+        return null;
     }
 
     // Task 2: return book
@@ -75,14 +104,15 @@ public class Library {
         return false;
     }
 
-    // ===============================
-    // Task 5: average book rating
-    // ===============================
-    public double getAverageBookRating() {
-        if (books.isEmpty()) {
-            return 0;
-        }
 
+    // Task 5: average book rating
+
+    public Object getAverageBookRating() {
+        if (books.isEmpty()) {
+            return null;
+
+        }
+        Book mostReviewed = books.getFirst();
         double total = 0;
         for (Book book : books) {
             total += book.getRating();
@@ -90,8 +120,6 @@ public class Library {
 
         return total / books.size();
     }
-
-
     // Task 5: most reviewed book
     public Book getMostReviewedBook() {
         if (books.isEmpty()) {

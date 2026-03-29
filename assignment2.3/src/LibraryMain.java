@@ -29,6 +29,18 @@ public class LibraryMain {
         library.addBook(book3);
         library.addBook(book4);
 
+        // Task 6: create users
+        User user1 = new User("Jana", 22);
+        User user2 = new User("Sara", 20);
+
+        // Task 6: add users to library
+        library.addUser(user1);
+        library.addUser(user2);
+
+        // Task 6: display all users
+        System.out.println();
+        library.displayUsers();
+
         // Task 1:display all books
         library.displayBooks();
 
@@ -46,6 +58,7 @@ public class LibraryMain {
 
 
         //Task 1: search books by author
+        System.out.println();
         library.findBooksByAuthor("Jane Doe");
 
         // Task 2: borrow a book
@@ -58,14 +71,17 @@ public class LibraryMain {
 
         library.displayBooks();
 
-        // Task 2: return a book
-        library.returnBook(book2);
+
+        // Task 6: user returns book through library
+        System.out.println("\nTask 6: User returning a book");
+        if (!user1.getBorrowedBooks().isEmpty()) {
+            user1.returnBook(library, user1.getBorrowedBooks().getFirst());
+        }
 
         // display books after returning
         System.out.println("\nAfter returning a book:");
         System.out.println("Is 'Data Structures and Algorithms' available? "
                 + library.isBookAvailable("Data Structures and Algorithms"));
-
         // Task 2: return
         library.returnBook(book2);
 
