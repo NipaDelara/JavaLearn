@@ -19,6 +19,13 @@ public class LibraryMain {
         // Task 1:display all books
         library.displayBooks();
 
+
+        // Task 3: check availability
+        System.out.println("\nChecking availability:");
+        System.out.println("Is 'Data Structures and Algorithms' available? "
+                + library.isBookAvailable("Data Structures and Algorithms"));
+
+
         //Task 1: search books by author
         library.findBooksByAuthor("Jane Doe");
 
@@ -27,6 +34,9 @@ public class LibraryMain {
 
         // display books after borrowing
         System.out.println("\nAfter borrowing a book:");
+        System.out.println("Is 'Data Structures and Algorithms' available? "
+                + library.isBookAvailable("Data Structures and Algorithms"));
+
         library.displayBooks();
 
         // Task 2: return a book
@@ -34,6 +44,9 @@ public class LibraryMain {
 
         // display books after returning
         System.out.println("\nAfter returning a book:");
-        library.displayBooks();
+        System.out.println("Is 'Data Structures and Algorithms' available? "
+                + library.isBookAvailable("Data Structures and Algorithms"));
+
+       // library.displayBooks();
     }
 }

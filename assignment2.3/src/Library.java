@@ -62,4 +62,14 @@ public class Library {
         books.add(book);
         System.out.println("Book returned: " + book.getTitle());
     }
+
+    // Task 3: check availability
+    public boolean isBookAvailable(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
