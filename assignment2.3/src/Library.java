@@ -44,4 +44,22 @@ public class Library {
             System.out.println("No books found by this author.");
         }
     }
+
+    // Task 2: borrow book by title
+    public void borrowBook(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                books.remove(book);
+                System.out.println("Book borrowed: " + title);
+                return;
+            }
+        }
+        System.out.println("Book not available: " + title);
+    }
+
+    // Task 2: return book
+    public void returnBook(Book book) {
+        books.add(book);
+        System.out.println("Book returned: " + book.getTitle());
+    }
 }

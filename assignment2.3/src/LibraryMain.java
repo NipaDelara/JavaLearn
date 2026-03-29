@@ -21,5 +21,19 @@ public class LibraryMain {
 
         //Task 1: search books by author
         library.findBooksByAuthor("Jane Doe");
+
+        // Task 2: borrow a book
+        library.borrowBook("Data Structures and Algorithms");
+
+        // display books after borrowing
+        System.out.println("\nAfter borrowing a book:");
+        library.displayBooks();
+
+        // Task 2: return a book
+        library.returnBook(book2);
+
+        // display books after returning
+        System.out.println("\nAfter returning a book:");
+        library.displayBooks();
     }
 }
